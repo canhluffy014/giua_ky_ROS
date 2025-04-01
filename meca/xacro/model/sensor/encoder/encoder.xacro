@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:macro name="encoder">
+
+        <link name="encoder_left_forward_link">
+            <inertial>
+                <origin xyz="0 -3.4694E-18 0.0012195" rpy="0 0 0" />
+                <mass value="0.0011046" />
+                <inertia ixx="4.6057E-08" ixy="-9.381E-13" ixz="-1.7536E-24" iyy="4.6073E-08" iyz="2.5318E-25" izz="9.0881E-08" />
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://meca/meshes/encoder_left_forward_link.STL" />
+                </geometry>
+                <material name="">
+                    <color rgba="0.79216 0.81961 0.93333 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://meca/meshes/encoder_left_forward_link.STL" />
+                </geometry>
+            </collision>
+        </link>
+        <joint name="encoder_left_forward_joint" type="continuous">
+            <origin xyz="0.000879827951730972 -0.00142956283466865 -0.12605" rpy="0 0 0" />
+            <parent link="link_left_forward1" />
+            <child link="encoder_left_forward_link" />
+            <axis xyz="0 0 1" />
+            
+            
+        </joint>
+
+
+
+
+        <link name="encoder_left_back_link">
+            <inertial>
+                <origin xyz="0 6.93889390390723E-18 0.00121951468354635" rpy="0 0 0" />
+                <mass value="0.00110455234746961" />
+                <inertia ixx="4.60573417540729E-08" ixy="9.38099743416329E-13" ixz="-1.86169766614336E-24" iyy="4.60729731271229E-08" iyz="-9.59486697287092E-25" izz="9.08807746771234E-08" />
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://meca/meshes/encoder_left_back_link.STL" />
+                </geometry>
+                <material name="">
+                    <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://meca/meshes/encoder_left_back_link.STL" />
+                </geometry>
+            </collision>
+        </link>
+        <joint name="encoder_left_back_joint" type="continuous">
+            <origin xyz="-0.000744846301707347 -0.00151335080252251 -0.12605" rpy="0 0 0" />
+            <parent link="link_left_back1" />
+            <child link="encoder_left_back_link" />
+            <axis xyz="0 0 1" />
+            
+            
+        </joint>
+
+
+
+
+
+        <link name="encoder_right_back_link">
+            <inertial>
+                <origin xyz="0 0 -0.0012195" rpy="0 0 0" />
+                <mass value="0.0011046" />
+                <inertia ixx="4.6057E-08" ixy="9.381E-13" ixz="-1.6658E-23" iyy="4.6073E-08" iyz="2.8857E-25" izz="9.0881E-08" />
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://meca/meshes/encoder_right_back_link.STL" />
+                </geometry>
+                <material name="">
+                    <color rgba="0.79216 0.81961 0.93333 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://meca/meshes/encoder_right_back_link.STL" />
+                </geometry>
+            </collision>
+        </link>
+        <joint name="encoder_right_back_joint" type="continuous">
+            <origin xyz="0.000125240091175149 -0.00011164957998884 0.12605" rpy="0 0 0" />
+            <parent link="link_right_back1" />
+            <child link="encoder_right_back_link" />
+            <axis xyz="0 0 1" />
+            
+            
+        </joint>
+
+
+
+
+
+        <link name="encoder_right_forward_link">
+            <inertial>
+                <origin xyz="0 6.9389E-18 3.0485E-05" rpy="0 0 0" />
+                <mass value="0.0011046" />
+                <inertia ixx="4.6057E-08" ixy="-9.381E-13" ixz="1.0944E-23" iyy="4.6073E-08" iyz="1.1236E-24" izz="9.0881E-08" />
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://meca/meshes/encoder_right_forward_link.STL" />
+                </geometry>
+                <material name="">
+                    <color rgba="0.79216 0.81961 0.93333 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://meca/meshes/encoder_right_forward_link.STL" />
+                </geometry>
+            </collision>
+        </link>
+        <joint name="encoder_right_forward_joint" type="continuous">
+            <origin xyz="0 -2.78616121349856E-05 0.1248" rpy="0 0 0" />
+            <parent link="link_right_forward1" />
+            <child link="encoder_right_forward_link" />
+            <axis xyz="0 0 1" />
+            
+            
+        </joint>
+
+
+
+
+    </xacro:macro>
+</robot>

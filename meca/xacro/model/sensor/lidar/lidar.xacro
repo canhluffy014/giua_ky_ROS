@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:macro name="lidar">
+        <link name="link_lidar">
+            <inertial>
+                <origin xyz="-0.00020012 4.1715E-07 0.032146" rpy="0 0 0" />
+                <mass value="0.0094944" />
+                <inertia ixx="3.8153E-06" ixy="2.9012E-11" ixz="-8.0883E-10" iyy="3.8141E-06" iyz="-2.0759E-11" izz="4.9345E-06" />
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://meca/meshes/link_lidar.STL" />
+                </geometry>
+                <material name="">
+                    <color rgba="0.082353 0.082353 0.082353 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://meca/meshes/link_lidar.STL" />
+                </geometry>
+            </collision>
+        </link>
+        <joint name="joint_lidar" type="fixed">
+            <origin xyz="0.12893 -0.0016914 0.0598" rpy="0 0 0" />
+            <parent link="base_link" />
+            <child link="link_lidar" />
+            <axis xyz="0 0 0" />
+            <limit effort="5.0" velocity="10.0"/>
+        </joint>
+    </xacro:macro>
+</robot>

@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- Định nghĩa các thuộc tính chung -->
+    <xacro:property name="arm_color" value="0.792 0.820 0.933 1" />
+    <xacro:property name="joint_limit" value="1.5707" />
+
+    <xacro:macro name="arm">
+        <link name="link_arm1">
+            <inertial>
+                <origin xyz="-0.0351 -0.0254 -0.0081" rpy="0 0 0" />
+                <mass value="0.0293" />
+                <inertia ixx="1.09e-5" ixy="-1.28e-5" ixz="-6.88e-7" 
+                         iyy="1.94e-5" iyz="-4.97e-7" izz="2.92e-5" />
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://meca/meshes/link_arm1.STL" />
+                </geometry>
+                <material name="arm_material">
+                    <color rgba="${arm_color}" />
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://meca/meshes/link_arm1.STL" />
+                </geometry>
+            </collision>
+        </link>
+
+        <joint name="joint_arm1" type="revolute">
+            <origin xyz="-0.10596 0.0075 0.086" rpy="-1.5708 0 0" />
+            <parent link="base_link" />
+            <child link="link_arm1" />
+            <axis xyz="0 0 1" />
+            <limit lower="-${joint_limit}" upper="${joint_limit}" effort="100" velocity="100.0" />
+            <dynamics damping="0.1" friction="0.2"/>
+            <limit effort="5.0" velocity="10.0"/>
+        </joint>
+
+        <link name="link_arm2">
+            <inertial>
+                <origin xyz="0.0664 -0.0461 0.0075" rpy="0 0 0" />
+                <mass value="0.0508" />
+                <inertia ixx="4.23e-5" ixy="5.38e-5" ixz="0" 
+                         iyy="8.25e-5" iyz="0" izz="1.22e-4" />
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://meca/meshes/link_arm2.STL" />
+                </geometry>
+                <material name="arm_material">
+                    <color rgba="${arm_color}" />
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://meca/meshes/link_arm2.STL" />
+                </geometry>
+            </collision>
+        </link>
+
+        <joint name="joint_arm2" type="revolute">
+            <origin xyz="-0.0810 -0.0586 -0.0075" rpy="0 0 0" />
+            <parent link="link_arm1" />
+            <child link="link_arm2" />
+            <axis xyz="0 0 1" />
+            <limit lower="-${joint_limit}" upper="${joint_limit}" effort="100" velocity="100.0" />
+            <dynamics damping="0.1" friction="0.2"/> 
+            <limit effort="5.0" velocity="10.0"/>
+        </joint>
+
+    </xacro:macro>
+
+</robot>

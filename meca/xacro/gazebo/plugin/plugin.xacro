@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:macro name="gazebo_plugin">
+
+        <!-- Gazebo plugin for ROS Control -->
+        <gazebo>
+            <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so"/>
+            <controlPeriod>0.01</controlPeriod>
+            <pid_gains>
+                <joint_left_forward1>
+                    <p>10.0</p>
+                    <i>0.01</i>
+                    <d>0.1</d>
+                </joint_left_forward1>
+
+
+                <joint_left_back1>
+                    <p>10.0</p>
+                    <i>0.01</i>
+                    <d>0.1</d>
+                </joint_left_back1>
+
+
+                <joint_right_back1>
+                    <p>10.0</p>
+                    <i>0.01</i>
+                    <d>0.1</d>
+                </joint_right_back1>
+
+
+                <joint_right_forward1>
+                    <p>10.0</p>
+                    <i>0.01</i>
+                    <d>0.1</d>
+                </joint_right_forward1>
+            </pid_gains>
+        </gazebo>
+
+
+
+        <!-- imu -->
+        <gazebo reference="link_imu">
+            <gravity>true</gravity>
+            <sensor name="imu_sensor" type="imu">
+                <always_on>true</always_on>
+                <update_rate>100</update_rate>
+                <visualize>true</visualize>
+                <topic>__default_topic__</topic>
+                <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+                    <topicName>imu</topicName>
+                    <bodyName>link_imu</bodyName>
+                    <updateRateHZ>10.0</updateRateHZ>
+                    <gaussianNoise>0.0</gaussianNoise>
+                    <xyzOffset>0 0 0</xyzOffset>
+                    <rpyOffset>0 0 0</rpyOffset>
+                    <frameName>link_imu</frameName>
+                    <initialOrientationAsReference>false</initialOrientationAsReference>
+                </plugin>
+                <pose>0 0 0 0 0 0</pose>
+            </sensor>
+        </gazebo>
+
+
+        
+
+        <gazebo>
+            <plugin name="omni_steering" filename="libgazebo_ros_planar_move.so">
+                <commandTopic>cmd_vel</commandTopic>
+                <odometryTopic>odom</odometryTopic>
+                <odometryFrame>odom</odometryFrame>
+                <odometryRate>100.0</odometryRate>
+                <robotBaseFrame>base_footprint</robotBaseFrame>
+                <publishTF>false</publishTF>
+            </plugin>
+        </gazebo>
+
+
+
+
+        <!-- lidar -->
+        <gazebo reference="link_lidar">
+
+            <sensor type="ray" name="lidar_sensor">
+
+                <pose>0 0 0 0 0 0</pose>
+
+                <visualize>true</visualize>
+
+                <update_rate>30</update_rate>
+
+                <ray>
+
+                    <scan>
+
+                        <horizontal>
+
+                            <samples>720</samples>
+
+                            <resolution>1</resolution>
+
+                            <min_angle>-1.5708</min_angle>
+
+                            <max_angle>1.5708</max_angle>
+
+                        </horizontal>
+
+                    </scan>
+
+                    <range>
+
+                        <min>0.1</min>
+
+                        <max>30.0</max>
+
+                        <resolution>0.01</resolution>
+
+                    </range>
+
+                    <noise>
+
+                        <type>gaussian</type>
+
+                        <mean>0.0</mean>
+
+                        <stddev>0.01</stddev>
+
+                    </noise>
+
+                </ray>
+
+                <plugin name="gazebo_ros_laser" filename="libgazebo_ros_laser.so">
+
+                    <topicName>/scan</topicName>
+
+                    <frameName>link_lidar</frameName>
+
+                </plugin>
+
+            </sensor>
+
+        </gazebo>
+
+
+
+
+    </xacro:macro>
+</robot>

@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:macro name="transmission_gazebo">
+        <!-- Transmition cho động cơ -->
+        <transmission name="wheel_tran11">
+            <type>transmission_interface/SimpleTransmission</type>
+            <actuator name="wheel_motor1">
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+            <joint name="joint_left_forward1">
+                <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+            </joint>
+        </transmission>
+
+        <transmission name="wheel_tran22">
+            <type>transmission_interface/SimpleTransmission</type>
+            <actuator name="wheel_motor2">
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+            <joint name="joint_right_forward1">
+                <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+            </joint>
+        </transmission>
+
+        <transmission name="wheel_tran33">
+            <type>transmission_interface/SimpleTransmission</type>
+            <actuator name="wheel_motor3">
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+            <joint name="joint_left_back1">
+                <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+            </joint>
+        </transmission>
+
+        <transmission name="wheel_tran44">
+            <type>transmission_interface/SimpleTransmission</type>
+            <actuator name="wheel_motor4">
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+            <joint name="joint_right_back1">
+                <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+            </joint>
+        </transmission>
+
+        <!-- Transmission cho encoder -->
+        <transmission name="encoder_trans_left_forward">
+            <type>transmission_interface/SimpleTransmission</type>
+            <joint name="encoder_left_forward_joint">
+                <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+            </joint>
+            <actuator name="encoder_left_forward_actuator">
+                <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+                <mechanicalReduction>1.0</mechanicalReduction>
+            </actuator>
+        </transmission>
+
+        <transmission name="encoder_trans_left_back">
+            <type>transmission_interface/SimpleTransmission</type>
+            <joint name="encoder_left_back_joint">
+                <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+            </joint>
+            <actuator name="encoder_left_back_actuator">
+                <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+                <mechanicalReduction>1.0</mechanicalReduction>
+            </actuator>
+        </transmission>
+
+        <transmission name="encoder_trans_right_back">
+            <type>transmission_interface/SimpleTransmission</type>
+            <joint name="encoder_right_back_joint">
+                <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+            </joint>
+            <actuator name="encoder_right_back_actuator">
+                <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+                <mechanicalReduction>1.0</mechanicalReduction>
+            </actuator>
+        </transmission>
+
+        <transmission name="encoder_trans_right_forward">
+            <type>transmission_interface/SimpleTransmission</type>
+            <joint name="encoder_right_forward_joint">
+                <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+            </joint>
+            <actuator name="encoder_right_forward_actuator">
+                <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+                <mechanicalReduction>1.0</mechanicalReduction>
+            </actuator>
+        </transmission>
+
+        <!-- arm_robot -->
+        <transmission name="tran1">
+            <type>transmission_interface/SimpleTransmission</type>
+            <joint name="joint_arm1">
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            </joint>
+            <actuator name="motor1">
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+        </transmission>
+
+        <transmission name="tran2">
+            <type>transmission_interface/SimpleTransmission</type>
+            <joint name="joint_arm2">
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            </joint>
+            <actuator name="motor2">
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+        </transmission>
+
+    </xacro:macro>
+
+</robot>

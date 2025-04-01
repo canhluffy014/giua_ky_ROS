@@ -1,0 +1,60 @@
+<launch>
+    <!-- Define arguments -->
+    <arg name="model" default="$(find meca)/xacro/mecanum_xacro.xacro"/>
+    <arg name="gui" default="true" />
+    <arg name="rvizconfig" default="$(find mecanum_steering_control)/rviz/urdf.rviz"/>
+    <!-- Launch Gazebo with the specified model -->
+    <include file="$(find mecanum_steering_control)/launch/gazebo.launch">
+        <arg name="model" value="$(arg model)"/>
+    </include>
+
+    <!-- Launch RViz -->
+
+    <param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
+    <node if="$(arg gui)" name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+
+    <node unless="$(arg gui)" name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+
+
+
+
+    <!-- Load joint controller configuration from YAML file to parameter server -->
+
+
+    <rosparam command="load" file="$(find mecanum_steering_control)/config/diff_drive.yaml"/>
+
+    <!-- Load joint controller configuration từ YAML -->
+    <rosparam file="$(find mecanum_steering_control)/config/mecanum_encoder_controller.yaml" command="load"/>
+
+    <rosparam file="$(find mecanum_steering_control)/config/rrbot_position_control.yaml" command="load"/>
+    <!-- <rosparam file="$(find mecanum_steering_control)/config/mecanum_drive_controller.yaml" command="load"/> -->
+
+
+    <!-- Load the controllers -->
+
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="
+            /meca/mecanum_drive_controller
+            /meca/mecanum_encoder_controller
+            /meca/joint_arm1_position_controller
+            /meca/joint_arm2_position_controller
+            
+             --shutdown-timeout 3"/>
+
+
+    <!-- Convert joint states to TF transforms for RViz -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+    <node name="mecanum_controller" pkg="mecanum_steering_control" type="mecanum_vel.py" output="screen" launch-prefix="python3" />
+
+    <param name="encoder_names" value="['encoder_left_forward_joint', 'encoder_left_back_joint', 'encoder_right_back_joint', 'encoder_right_forward_joint']"/>
+
+    <node name="encoder_listener" pkg="mecanum_steering_control" type="mecanum_control.py" output="screen">
+        <param name="encoder_names" value="['encoder_left_forward_joint', 'encoder_left_back_joint', 'encoder_right_back_joint', 'encoder_right_forward_joint']"/>
+    </node>
+    
+    <node pkg="rqt_plot" type="rqt_plot" name="plot_encoder">
+        <param name="args" value="/joint_states/velocity[0] /joint_states/velocity[1] /joint_states/velocity[2] /joint_states/velocity[3]"/>
+    </node>
+
+</launch>

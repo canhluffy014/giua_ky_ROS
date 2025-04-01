@@ -1,0 +1,222 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <!-- Macro định nghĩa Roller -->
+  <xacro:macro name="wheel">
+    <link name="link_left_forward1">
+      <inertial>
+        <origin xyz="1.0435E-06 4.8329E-05 -0.0023476" rpy="0 0 0" />
+        <mass value="0.13253" />
+        <inertia ixx="2.8353E-05" ixy="-4.1241E-08" ixz="-4.6777E-08" iyy="2.8355E-05" iyz="4.779E-08" izz="3.4561E-05" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://meca/meshes/link_left_forward.STL" />
+        </geometry>
+        <material name="">
+          <color rgba="0 0.21176 0.46667 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://meca/meshes/link_left_forward.STL" />
+        </geometry>
+        <geometry>
+          <cylinder>
+            <radius>0.05</radius>
+            <length>0.02</length>
+          </cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.5</mu>
+              <mu2>0.5</mu2>
+            </ode>
+          </friction>
+        </surface>
+        <contact>
+          <ode>
+            <soft_cfm>0.01</soft_cfm>
+            <soft_erp>0.8</soft_erp>
+            <kp>1000000</kp>
+            <kd>10</kd>
+            <max_vel>100.0</max_vel>
+            <min_depth>0.001</min_depth>
+          </ode>
+        </contact>
+      </collision>
+    </link>
+    <joint name="joint_left_forward1" type="continuous">
+      <origin xyz="0.12762 0.14948 0.017" rpy="-1.5708 0 0" />
+      <parent link="base_link" />
+      <child link="link_left_forward1" />
+      <axis xyz="0 0 1" />
+      <limit effort="20.0" velocity="30.0"/>
+    </joint>
+    <link name="link_left_back1">
+      <inertial>
+        <origin xyz="4.3774E-05 2.0509E-05 -0.0023476" rpy="0 0 0" />
+        <mass value="0.13253" />
+        <inertia ixx="2.8322E-05" ixy="2.5704E-08" ixz="2.2072E-08" iyy="2.8387E-05" iyz="6.3125E-08" izz="3.4561E-05" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://meca/meshes/link_left_back.STL" />
+        </geometry>
+        <material name="">
+          <color rgba="0.79216 0.81961 0.93333 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://meca/meshes/link_left_back.STL" />
+        </geometry>
+        <geometry>
+          <cylinder>
+            <radius>0.05</radius>
+            <length>0.02</length>
+          </cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.5</mu>
+              <mu2>0.5</mu2>
+            </ode>
+          </friction>
+        </surface>
+        <contact>
+          <ode>
+            <soft_cfm>0.01</soft_cfm>
+            <soft_erp>0.8</soft_erp>
+            <kp>1000000</kp>
+            <kd>10</kd>
+            <max_vel>100.0</max_vel>
+            <min_depth>0.001</min_depth>
+          </ode>
+        </contact>
+      </collision>
+    </link>
+    <joint name="joint_left_back1" type="continuous">
+      <origin xyz="-0.12797 0.14948 0.017" rpy="-1.5708 0 0" />
+      <parent link="base_link" />
+      <child link="link_left_back1" />
+      <axis xyz="0 0 1" />
+      <limit effort="20.0" velocity="30.0"/>
+    </joint>
+    <link name="link_right_back1">
+      <inertial>
+        <origin xyz="1.0435E-06 -4.8329E-05 0.0023476" rpy="0 0 0" />
+        <mass value="0.13253" />
+        <inertia ixx="2.8353E-05" ixy="4.1241E-08" ixz="4.6777E-08" iyy="2.8355E-05" iyz="4.779E-08" izz="3.4561E-05" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://meca/meshes/link_right_back.STL" />
+        </geometry>
+        <material name="">
+          <color rgba="0.79216 0.81961 0.93333 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://meca/meshes/link_right_back.STL" />
+        </geometry>
+        <geometry>
+          <cylinder>
+            <radius>0.05</radius>
+            <length>0.02</length>
+          </cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.5</mu>
+              <mu2>0.5</mu2>
+            </ode>
+          </friction>
+        </surface>
+        <contact>
+          <ode>
+            <soft_cfm>0.01</soft_cfm>
+            <soft_erp>0.8</soft_erp>
+            <kp>1000000</kp>
+            <kd>10</kd>
+            <max_vel>100.0</max_vel>
+            <min_depth>0.001</min_depth>
+          </ode>
+        </contact>
+      </collision>
+    </link>
+    <joint name="joint_right_back1" type="continuous">
+      <origin xyz="-0.12884 -0.14948 0.017" rpy="-1.5708 0 0" />
+      <parent link="base_link" />
+      <child link="link_right_back1" />
+      <axis xyz="0 0 1" />
+      <limit effort="20.0" velocity="30.0"/>
+    </joint>
+    <link name="link_right_forward1">
+      <inertial>
+        <origin xyz="4.3774E-05 -2.0509E-05 0.0023476" rpy="0 0 0" />
+        <mass value="0.13253" />
+        <inertia ixx="2.8322E-05" ixy="-2.5704E-08" ixz="-2.2072E-08" iyy="2.8387E-05" iyz="6.3125E-08" izz="3.4561E-05" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://meca/meshes/link_right_forward.STL" />
+        </geometry>
+        <material name="">
+          <color rgba="0.79216 0.81961 0.93333 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://meca/meshes/link_right_forward.STL" />
+        </geometry>
+        <geometry>
+          <cylinder>
+            <radius>0.05</radius>
+            <length>0.02</length>
+          </cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.5</mu>
+              <mu2>0.5</mu2>
+            </ode>
+          </friction>
+        </surface>
+        <contact>
+          <ode>
+            <soft_cfm>0.01</soft_cfm>
+            <soft_erp>0.8</soft_erp>
+            <kp>1000000</kp>
+            <kd>10</kd>
+            <max_vel>100.0</max_vel>
+            <min_depth>0.001</min_depth>
+          </ode>
+        </contact>
+      </collision>
+    </link>
+    <joint name="joint_right_forward1" type="continuous">
+      <origin xyz="0.12849 -0.14948 0.017" rpy="-1.5708 0 0" />
+      <parent link="base_link" />
+      <child link="link_right_forward1" />
+      <axis xyz="0 0 1" />
+      <limit effort="20.0" velocity="30.0"/>
+    </joint>
+
+
+
+  </xacro:macro>
+
+</robot>

@@ -1,0 +1,10 @@
+meca:
+  mecanum_drive_controller:
+    type: "velocity_controllers/JointGroupVelocityController"
+    publish_rate: 50
+    joints:
+      - joint_left_forward1
+      - joint_right_forward1
+      - joint_left_back1
+      - joint_right_back1
+    

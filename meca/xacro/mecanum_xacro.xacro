@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="meca">
+
+
+    <!-- ======================================= Model include  ====================================-->
+
+
+    <!-- Base -->
+    <xacro:include filename="$(find meca)/xacro/model/base/base.xacro"/>
+
+    <!-- Wheel -->
+    <xacro:include filename="$(find meca)/xacro/model/wheel/wheel.xacro"/>
+
+    <!-- Wheel1 -->
+    <!-- <xacro:include filename="$(find meca)/xacro/model/wheel1/wheel1.xacro"/> -->
+
+
+
+
+    <!-- lidar -->
+    <xacro:include filename="$(find meca)/xacro/model/sensor/lidar/lidar.xacro"/>
+
+
+
+    <!-- imu -->
+    <xacro:include filename="$(find meca)/xacro/model/sensor/imu/imu.xacro"/>
+
+    <!-- encoder -->
+    <xacro:include filename="$(find meca)/xacro/model/sensor/encoder/encoder.xacro"/>
+
+    <!-- arm -->
+    <xacro:include filename="$(find meca)/xacro/model/arm/arm.xacro"/>
+
+
+    <!-- ======================================= Gazebo include  ====================================-->
+
+
+
+    <!-- Transmission -->
+    <xacro:include filename="$(find meca)/xacro/gazebo/transmission/transmission.xacro"/>
+
+
+
+
+
+
+    <!-- Plugin -->
+    <xacro:include filename="$(find meca)/xacro/gazebo/plugin/plugin.xacro"/>
+
+
+
+
+    <!-- ======================================= Model Macro  ====================================-->
+
+    <!-- Base -->
+    <xacro:base/>
+
+    <!-- Wheel -->
+    <xacro:wheel/>
+
+    <!-- Wheel1 -->
+    <!-- <xacro:wheel1/> -->
+
+
+    <!-- RplidarA1 -->
+    <xacro:lidar/>
+
+    <!-- imu -->
+    <xacro:imu/>
+
+    <!-- encode -->
+
+    <xacro:encoder/>
+
+    <!-- arm -->
+    <xacro:arm/>
+
+
+
+
+    <!-- ======================================= Gazebo Macro  ====================================-->
+
+
+    <!-- Transmission -->
+    <xacro:transmission_gazebo/>
+
+
+
+
+
+    <!-- Plugin -->
+    <xacro:gazebo_plugin/>
+
+
+</robot>

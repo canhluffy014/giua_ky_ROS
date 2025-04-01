@@ -1,0 +1,366 @@
+<?xml version="1.0" ?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="meca">
+  <link name="base_link">
+    <inertial>
+      <origin xyz="-0.0012337 1.0003E-06 0.027856" rpy="0 0 0" />
+      <mass value="1.2237" />
+      <inertia ixx="0.0053566" ixy="3.6093E-10" ixz="6.2608E-22" iyy="0.0084415" iyz="6.2819E-22" izz="0.013752" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://meca/meshes/base_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://meca/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="link_left_forward">
+    <inertial>
+      <origin xyz="1.0435E-06 4.8329E-05 -0.0023476" rpy="0 0 0" />
+      <mass value="0.13253" />
+      <inertia ixx="2.8353E-05" ixy="-4.1241E-08" ixz="-4.6777E-08" iyy="2.8355E-05" iyz="4.779E-08" izz="3.4561E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://meca/meshes/link_left_forward.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0 0.21176 0.46667 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://meca/meshes/link_left_forward.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_left_forward" type="continuous">
+    <origin xyz="0.12762 0.14948 0.01867" rpy="-1.5708 0 0" />
+    <parent link="base_link" />
+    <child link="link_left_forward" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="encoder_left_forward_link">
+    <inertial>
+      <origin xyz="0 -3.4694E-18 0.0012195" rpy="0 0 0" />
+      <mass value="0.0011046" />
+      <inertia ixx="4.6057E-08" ixy="-9.381E-13" ixz="-1.7536E-24" iyy="4.6073E-08" iyz="2.5318E-25" izz="9.0881E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://meca/meshes/encoder_left_forward_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://meca/meshes/encoder_left_forward_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="encoder_left_forward_joint" type="fixed">
+    <origin xyz="0.000879827951730972 -0.00142956283466865 -0.12605" rpy="0 0 0" />
+    <parent link="link_left_forward" />
+    <child link="encoder_left_forward_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="link_left_back">
+    <inertial>
+      <origin xyz="4.3774E-05 2.0509E-05 -0.0023476" rpy="0 0 0" />
+      <mass value="0.13253" />
+      <inertia ixx="2.8322E-05" ixy="2.5704E-08" ixz="2.2072E-08" iyy="2.8387E-05" iyz="6.3125E-08" izz="3.4561E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://meca/meshes/link_left_back.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://meca/meshes/link_left_back.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_left_back" type="continuous">
+    <origin xyz="-0.12797 0.14948 0.018587" rpy="-1.5708 0 0" />
+    <parent link="base_link" />
+    <child link="link_left_back" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="encoder_left_back_link">
+    <inertial>
+      <origin xyz="0 6.93889390390723E-18 0.00121951468354635" rpy="0 0 0" />
+      <mass value="0.00110455234746961" />
+      <inertia ixx="4.60573417540729E-08" ixy="9.38099743416329E-13" ixz="-1.86169766614336E-24" iyy="4.60729731271229E-08" iyz="-9.59486697287092E-25" izz="9.08807746771234E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://meca/meshes/encoder_left_back_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://meca/meshes/encoder_left_back_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="encoder_left_back_joint" type="fixed">
+    <origin xyz="-0.000744846301707347 -0.00151335080252251 -0.12605" rpy="0 0 0" />
+    <parent link="link_left_back" />
+    <child link="encoder_left_back_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="link_right_back">
+    <inertial>
+      <origin xyz="1.0435E-06 -4.8329E-05 0.0023476" rpy="0 0 0" />
+      <mass value="0.13253" />
+      <inertia ixx="2.8353E-05" ixy="4.1241E-08" ixz="4.6777E-08" iyy="2.8355E-05" iyz="4.779E-08" izz="3.4561E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://meca/meshes/link_right_back.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://meca/meshes/link_right_back.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_right_back" type="continuous">
+    <origin xyz="-0.12884 -0.14948 0.019988" rpy="-1.5708 0 0" />
+    <parent link="base_link" />
+    <child link="link_right_back" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="encoder_right_back_link">
+    <inertial>
+      <origin xyz="0 0 -0.0012195" rpy="0 0 0" />
+      <mass value="0.0011046" />
+      <inertia ixx="4.6057E-08" ixy="9.381E-13" ixz="-1.6658E-23" iyy="4.6073E-08" iyz="2.8857E-25" izz="9.0881E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://meca/meshes/encoder_right_back_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://meca/meshes/encoder_right_back_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="encoder_right_back_joint" type="fixed">
+    <origin xyz="0.000125240091175149 -0.00011164957998884 0.12605" rpy="0 0 0" />
+    <parent link="link_right_back" />
+    <child link="encoder_right_back_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="link_right_forward">
+    <inertial>
+      <origin xyz="4.3774E-05 -2.0509E-05 0.0023476" rpy="0 0 0" />
+      <mass value="0.13253" />
+      <inertia ixx="2.8322E-05" ixy="-2.5704E-08" ixz="-2.2072E-08" iyy="2.8387E-05" iyz="6.3125E-08" izz="3.4561E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://meca/meshes/link_right_forward.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://meca/meshes/link_right_forward.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_right_forward" type="continuous">
+    <origin xyz="0.12849 -0.14948 0.020072" rpy="-1.5708 0 0" />
+    <parent link="base_link" />
+    <child link="link_right_forward" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="encoder_right_forward_link">
+    <inertial>
+      <origin xyz="0 6.9389E-18 3.0485E-05" rpy="0 0 0" />
+      <mass value="0.0011046" />
+      <inertia ixx="4.6057E-08" ixy="-9.381E-13" ixz="1.0944E-23" iyy="4.6073E-08" iyz="1.1236E-24" izz="9.0881E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://meca/meshes/encoder_right_forward_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://meca/meshes/encoder_right_forward_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="encoder_right_forward_joint" type="fixed">
+    <origin xyz="0 -2.78616121349856E-05 0.1248" rpy="0 0 0" />
+    <parent link="link_right_forward" />
+    <child link="encoder_right_forward_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="link_lidar">
+    <inertial>
+      <origin xyz="-0.00020012 4.1715E-07 0.032146" rpy="0 0 0" />
+      <mass value="0.0094944" />
+      <inertia ixx="3.8153E-06" ixy="2.9012E-11" ixz="-8.0883E-10" iyy="3.8141E-06" iyz="-2.0759E-11" izz="4.9345E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://meca/meshes/link_lidar.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.082353 0.082353 0.082353 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://meca/meshes/link_lidar.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_lidar" type="fixed">
+    <origin xyz="0.12893 -0.0016914 0.0598" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="link_lidar" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="link_imu">
+    <inertial>
+      <origin xyz="-7.5244E-05 -0.0020556 -7.7593E-06" rpy="0 0 0" />
+      <mass value="0.00054834" />
+      <inertia ixx="8.6846E-09" ixy="-6.071E-11" ixz="4.4622E-11" iyy="1.9443E-08" iyz="-8.0543E-11" izz="2.6482E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://meca/meshes/link_imu.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://meca/meshes/link_imu.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_imu" type="fixed">
+    <origin xyz="-8.8046E-05 -0.011773 0.02" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="link_imu" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="link_arm1">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0" />
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://meca/meshes/link_arm1.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.93333 0.5 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://meca/meshes/link_arm1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_arm1" type="continuous">
+    <origin xyz="-0.10596 0.0075 0.086" rpy="-1.5708 0 0" />
+    <parent link="base_link" />
+    <child link="link_arm1" />
+    <axis xyz="0 0 1" />
+    <limit lower="-1.5707" upper="1.5707" effort="0" velocity="0" />
+  </joint>
+  <link name="link_arm2">
+    <inertial>
+      <origin xyz="0.066382 -0.046095 0.0075" rpy="0 0 0" />
+      <mass value="0.050806" />
+      <inertia ixx="4.2368E-05" ixy="5.3833E-05" ixz="-8.2018E-20" iyy="8.2512E-05" iyz="5.3173E-20" izz="0.00012297" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://meca/meshes/link_arm2.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://meca/meshes/link_arm2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_arm2" type="continuous">
+    <origin xyz="-0.081046 -0.05858 -0.0075" rpy="0 0 0" />
+    <parent link="link_arm1" />
+    <child link="link_arm2" />
+    <axis xyz="0 0 1" />
+    <limit lower="-1.5707" upper="1.5707" effort="0" velocity="0" />
+  </joint>
+</robot>
