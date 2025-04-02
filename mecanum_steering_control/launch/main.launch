@@ -29,6 +29,7 @@
     <rosparam file="$(find mecanum_steering_control)/config/rrbot_position_control.yaml" command="load"/>
     <!-- <rosparam file="$(find mecanum_steering_control)/config/mecanum_drive_controller.yaml" command="load"/> -->
 
+    
 
     <!-- Load the controllers -->
 
@@ -52,9 +53,7 @@
     <node name="encoder_listener" pkg="mecanum_steering_control" type="mecanum_control.py" output="screen">
         <param name="encoder_names" value="['encoder_left_forward_joint', 'encoder_left_back_joint', 'encoder_right_back_joint', 'encoder_right_forward_joint']"/>
     </node>
+
     
-    <node pkg="rqt_plot" type="rqt_plot" name="plot_encoder">
-        <param name="args" value="/joint_states/velocity[0] /joint_states/velocity[1] /joint_states/velocity[2] /joint_states/velocity[3]"/>
-    </node>
 
 </launch>

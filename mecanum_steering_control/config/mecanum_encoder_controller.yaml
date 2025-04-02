@@ -1,9 +1,14 @@
 meca:
-  mecanum_encoder_controller:
+  joint_state_controller:
     type: joint_state_controller/JointStateController
     publish_rate: 50
+
+  mecanum_encoder_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50  
     joints:
       - encoder_left_forward_joint
       - encoder_left_back_joint
       - encoder_right_back_joint
       - encoder_right_forward_joint
+    publish_wheel_joint_controller_state: true
