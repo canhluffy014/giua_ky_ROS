@@ -6,7 +6,7 @@ Mecanum 4 bánh:
 + meca chưa file xacro,urdf,mesh
 + mecanum_steering_control diều khiển
 
--Chạy launch dể khởi tạo:
+- Chạy dòng lệnh dưới đây để chạy file launch khởi tạo Gazebo,Rviz và code điều khiển :
 
 roslaunch mecanum_steering_control main.launch
 
