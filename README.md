@@ -11,9 +11,11 @@ Mecanum 4 bánh:
 roslaunch mecanum_steering_control main.launch
 
 - Điều khiển như sau
-Q  W  E        U   I
-A  S  D        J   K
-   X
+
+| Q  | W  | E  |    | U  | I  |
+|----|----|----|----|----|----|
+| A  | S  | D  |    | J  | K  |
+|    | X  |    |    |    |    |
 
 W: Tiến | X: Lùi | Q: Quay trái | E: Quay phải
 
