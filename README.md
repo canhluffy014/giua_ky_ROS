@@ -1,7 +1,6 @@
 Project giữa kỳ ROS:
 Mecanum 4 bánh:
-video điều khiển:
-https://youtu.be/bkMwmFSSujk
+
 
 -Gồm 2 package: meca và mecanum_steering_control
 + meca chưa file xacro,urdf,mesh
